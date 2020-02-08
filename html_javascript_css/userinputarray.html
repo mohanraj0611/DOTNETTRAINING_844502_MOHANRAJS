@@ -1,0 +1,52 @@
+<!doctype>
+<html>
+<head>
+<title>Array Getting Value From User</title>
+</head>
+<meta charset="uft-8">
+
+<body onload="myarray()">
+<center>
+
+<h2>User Input Array Elments</h2>
+
+
+
+<p id="demo"> </p>
+
+
+<script type="text/javascript">
+
+function myarray()
+{
+var i;
+var inputArray=[];
+var size=5;
+for(i=0;i<size;i++)
+{
+inputArray.push(parseInt(prompt('Enter The Array Elements')));
+}
+document.getElementById("demo").innerHTML = inputArray;
+document.writeln('the array elements are:' +inputArray);
+document.writeln('<br>');
+inputArray.pop();
+document.writeln('the array elements after pop are:' +inputArray);
+document.writeln('<br>');
+inputArray.push(5);
+document.writeln('the array elements after push are:' +inputArray);
+document.writeln('<br>');
+inputArray.unshift(8);
+document.writeln('the array elements after push at beginning are:' +inputArray);
+document.writeln('<br>');
+inputArray.Splice(0,9,3);
+document.writeln('the array elements after push at middle are:' +inputArray);
+inputArray.insert(0,4);
+document.writeln('the array elements after push using index are:' +inputArray);
+
+}
+
+
+
+</script>
+</body>
+</html>

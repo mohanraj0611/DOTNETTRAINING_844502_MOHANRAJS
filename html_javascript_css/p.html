@@ -1,0 +1,22 @@
+<!doctype>
+<html>
+<head>
+<title>paragraph</title>
+</head>
+<p>this is first paragraph</p>
+<p>this is second paragraph</p>
+<p>this is third paragraph</p>
+
+<p id="p1">this is not a paragraph</p>
+<body>
+
+
+<script type="text/javascript">
+{
+var x=document.getElementsByTagName("p");
+document.getElementById("p1").innerHTML = x[0].innerHTML;
+
+}
+</script>
+</body>
+</html>

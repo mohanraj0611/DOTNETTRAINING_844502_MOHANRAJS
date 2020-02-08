@@ -1,0 +1,448 @@
+
+getting user inputs:
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp2
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int n1, n2, result;
+            Console.WriteLine("enter the value of n1");
+            n1 = int.Parse(Console.ReadLine());
+            Console.WriteLine("enter the value of n2");
+            n2 = int.Parse(Console.ReadLine());
+            result = n1 * n2;
+            Console.WriteLine("the multiplication of n1 and n2 are", result);
+
+        }
+    }
+}
+
+method overriding:
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace polymorphism
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            employee emp = new employee();
+
+            var salray = emp.getsalary(30, 800);
+            Console.WriteLine("salary with out incentive = {0}", salray);
+
+           salray = emp.getsalary(30, 800 ,5000);
+            Console.WriteLine("salary with  incentive = {0}", salray);
+           
+
+            manager mng = new manager();
+            var salary = mng.getperks(30000, 5000);
+            Console.WriteLine("salary = {0}", salary);
+            Console.ReadKey();
+
+
+        }
+    }
+
+    public class employee
+    {
+        public double getsalary(int nds , float spd)//this method  can be overloaded with diff signature
+        {
+            double salary = nds * spd;
+            return salary;
+        }
+        public double getsalary(int nds, float spd ,float incent)//getsalary method overloaded
+        {
+            double salary = (nds * spd) + incent;
+            return salary;
+        }
+
+        public virtual double getperks (float salary , float perk)
+        {
+            double ts = salary + perk;
+            return ts;
+
+        }
+
+    }
+    public class manager : employee
+    {
+        public override double getperks(float salary, float perk)
+        {
+            return base.getperks(salary, perk)*1.10;
+        }
+    }
+}
+
+enum:
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp6
+{
+    class Program
+    {
+        enum Department
+        {
+            physics = 10,
+            chemistry = 12,
+            mathamatics = 15,
+            biology = 18
+        };
+
+        enum Color
+        {
+            Red = 10,
+            green,
+            blue = 15
+        };
+
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Department id of physics:{0}", (int)Department.physics);
+            Console.WriteLine("Department id of chemistry:{0}", (int)Department.chemistry);
+            Console.WriteLine("Department id of mathamatics:{0}", (int)Department.mathamatics);
+            Console.WriteLine("Department id of biology:{0}", (int)Department.biology);
+
+            Console.WriteLine("the color red indicates: {0}", (int)Color.Red);
+            Console.WriteLine("the color green indicates: {0}", (int)Color.green);
+            Console.WriteLine("the color blue indicates: {0}", (int)Color.blue);
+
+            Console.ReadKey();
+        }
+    }
+}
+
+switch,if,for:
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp4
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int a = 50;
+
+            if (a > 10)
+            {
+                Console.WriteLine("good morning");
+            }
+            else if(a<10)
+            {
+                Console.WriteLine("good evenig");
+            }
+            else
+            {
+                Console.WriteLine("good night");
+            }
+
+            Console.WriteLine("enter the value");
+            int b=Convert.ToInt32(Console.ReadLine());
+           
+
+            switch(b)
+            {
+                case 1:Console.WriteLine("HELLO HOW ARE YOU");
+                    break;
+                case 2:Console.WriteLine("HI HOW DO YOU DO");
+                    break;
+                case 3:Console.WriteLine("nasama po");
+                    break;
+                default:Console.WriteLine("sethu po");
+                    break;
+                   
+            }
+            Console.WriteLine("enter a nuber");
+            int number = int.Parse(Console.ReadLine());
+            
+            for(int i = 1;i<=10;i++)
+            {
+                Console.WriteLine("{0} * {1} = {2}", number, i, number * i);
+            }
+
+            int m = 10;
+            do
+            {
+                Console.WriteLine("{0} is less than 100", m);
+                m = m + 10;
+
+
+            }while(m < 100);
+
+            int n = 10;
+
+            while (n<100)
+            {
+                Console.WriteLine("{0} is less than 100", n);
+                n = n + 10;
+            }
+
+            Console.ReadKey();
+           
+        }
+    }
+}
+
+calling a function without parameters:
+
+
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp7
+{
+    class Program
+    {
+        static void DisplayNum()
+        {
+            Console.WriteLine("enter the value of a");
+            int a = int.Parse(Console.ReadLine());
+            Console.WriteLine("the entered age is" +a);
+            Console.ReadKey();
+            
+
+
+        }
+
+        static void DisplaySen()
+        {
+            Console.WriteLine("enter the user name");
+            string username = Console.ReadLine();
+            string s = "username:{1}";
+            string msg=string.Format("mohan");
+            Console.WriteLine("the entered value is:{1}", msg);
+            //Console.WriteLine("the entered username is:" + username);
+            Console.ReadKey();
+        }
+        static void Main(string[] args)
+        {
+            
+            DisplayNum();
+            DisplaySen();
+        }
+    }
+}
+
+call by reference and value:
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp12
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int a = 100;
+            object obj = a;
+
+            obj = a;// converting a value type to refrerence type implicitily-boxing
+
+            //unboxing-converting a boxed type into a value type
+
+            int b = (int)a;
+            //passing arguments by values
+            Console.WriteLine("values of a and b :{0} {1}", a, b);
+
+            int i, j;
+            i = 10; j = 20;
+            ShowData1(i, j);
+            Console.WriteLine("values of i and j before function call are:{0} {1}", i, j);
+            Console.WriteLine("values of k and l after function call are:{0} {1}", i, j);
+
+            int k, l;
+            k = 10;
+            l = 20;
+
+            //passing arguments by reference
+            ShowData2(ref k, ref l);
+            Console.WriteLine("values of k and l after function call are:{0} {1}", k, l);
+
+
+            Console.ReadLine();
+
+        }
+
+        public static void ShowData2(ref int a, ref int b)
+        {
+            a = a + 5;
+            b = b + 5;
+            double sum = a + b;
+            Console.WriteLine("sum={0}", sum);
+        }
+        public static void ShowData1( int a,  int b)
+        {
+            double sum = a + b;
+            a = a + 5;
+            b = b + 5;
+            
+            Console.WriteLine("sum={0}", sum);
+        }
+    }
+}
+
+exception handling:
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace excephandle
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            try
+            {
+
+
+                int[] marks = new int[6] { 85, 34, 34, 34, 45, 45 };
+
+                for (int i = 0; i <= 6; i++)
+                {
+                    Console.WriteLine("subject marks are {0} = {1}", i + 1, marks[i]);
+                }
+            }
+            catch(Exception e)
+            {
+                Console.WriteLine(e.Message);
+                Console.WriteLine(e.StackTrace);
+            }
+            Console.WriteLine("bal code");
+            try
+            {
+                int a, b, c;
+                Console.WriteLine("enter the numerator");
+                a = int.Parse(Console.ReadLine());
+                Console.WriteLine("enter the denominator");
+                b = int.Parse(Console.ReadLine());
+
+                if (b == 0)
+                {
+                    throw new DivideByZeroException("Denominator cannot be zero");
+                }
+                else
+                {
+                    //Console.WriteLine("denominator accepted");
+                    c = a / b;
+                    Console.WriteLine("the c value is {0}", c);
+                }
+                Console.ReadKey();
+            }
+            catch(DivideByZeroException e)
+            {
+                Console.WriteLine(e.Message);
+            }
+            
+            
+        }
+
+
+
+
+    }
+}
+
+
+interface:
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace interfaceDemo
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int[] marks = new int[6] { 90, 97, 98, 90, 95, 87 };
+
+            result objr = new result();
+            var avg = objr.getavgmarks(marks);
+            objr.displayavg(avg);
+            objr.showgrade(avg);
+            Console.ReadKey();
+        }
+    }
+    public interface iexam
+    {
+        double getavgmarks(int[] marks);
+        void displayavg(double avg);
+
+    }
+    public interface istudent
+    {
+        void showgrade(double avg);
+
+    }
+
+    public class result : iexam, istudent
+    {
+        public void displayavg(double avg)
+        {
+            Console.WriteLine("the avg marks ={0}", avg);
+        }
+
+        public double getavgmarks(int[] marks)
+        {
+            int total;
+            double avg;
+            total = 0;
+            for(int i=0;i<marks.Length;i++)
+            {
+                total = total + marks[i];
+               
+            }
+            avg = total / marks.Length;
+            return avg;
+
+        }
+
+        public void showgrade(double avg)
+        {
+            if(avg>=70)
+            {
+                Console.WriteLine("distinction");
+            }
+            else
+            {
+                Console.WriteLine("pass");
+            }
+        }
+    }
+}

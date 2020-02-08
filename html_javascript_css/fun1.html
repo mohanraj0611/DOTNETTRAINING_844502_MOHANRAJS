@@ -1,0 +1,43 @@
+<!doctype>
+<html>
+<head>
+<title> functions</title>
+</head>
+<body>
+<script type="text/javascript">
+
+var msg1='t';
+
+function show(msg1)
+{
+var msg2='f';
+document.writeln(msg2);
+return (msg1);
+}
+//var msg1='hello world';
+
+document.writeln(msg1);
+document.write('<br>');
+
+var obj= show(msg1);
+document.write('<br>');
+
+function multiple(a,b)
+{
+return a+b;
+
+}
+
+var n1=parseFloat(prompt('enter first number'));
+var n2=parseFloat(prompt('enter second nuber'));
+
+var c=multiple(n1,n2);
+
+document.writeln('the product of '+n1 +' and' +n2+' = '+c);
+
+
+</script>
+
+
+</body>
+</html>

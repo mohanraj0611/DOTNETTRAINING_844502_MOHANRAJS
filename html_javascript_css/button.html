@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+<head>
+<title>Javascript DOM Programming</title>
+</head>
+<body>
+
+First number:<input type="text" id="text1"></br>
+Second number:<input type="text" id="text2"></br>
+
+
+<button id="btnshow" onclick="add()">add</button>
+
+<h1>the answer is</h1>
+<p id="demo"></p>
+
+
+
+<script type="text/javascript">
+function add()
+{
+var y=parseInt(document.getElementById("text1").value);
+var z=parseInt(document.getElementById("text2").value);
+
+var x=y+z;
+//document.writeln('sum of '+y +' and '+z + ' = ' +x);
+document.getElementById("demo").innerHTML=x;
+}
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

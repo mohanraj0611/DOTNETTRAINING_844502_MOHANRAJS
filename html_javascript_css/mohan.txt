@@ -1,0 +1,37 @@
+<html>
+<head>
+<title>Array Getting Value From User</title>
+</head>
+<meta charset="uft-8">
+
+<center>
+
+<h2>User Input Array Elments</h2>
+
+<p id="demo"> </p>
+<button onclick="myarray()">click</button>
+
+</center>
+
+<body>
+<script type="text/javascript">
+
+function myarray()
+{
+var i;
+var inputArray=[];
+var size=5;
+for(i=0;i<size;i++)
+{
+ inputArray.push(parseInt(prompt('Enter The Array Elements' )));
+
+}
+document.getElementById("demo").innerHTML = inputArray;
+}
+
+
+
+
+</script>
+</body>
+</html>

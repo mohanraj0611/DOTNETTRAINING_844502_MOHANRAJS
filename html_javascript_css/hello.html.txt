@@ -1,0 +1,12 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="uft-8">
+<title>first paragraph</title>
+</head>
+
+<body bgcolor="yellow">
+<h1>hello,good morning</h1>
+<p>this is my first webpage</p>
+</body>
+</html>
